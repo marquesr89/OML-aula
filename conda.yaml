@@ -1,4 +1,4 @@
-name: NewOML
+name: OML
 channels:
   - conda-forge
   - defaults
