@@ -119,7 +119,7 @@
             formData.forEach((value, key) => {
                 data[key] = value;
             });
-            fetch('http://127.0.0.1:5002/has_diabetes', {
+            fetch('http://localhost:5002/has_diabetes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,5 +147,3 @@
     </script>
 </body>
 </html>
-
-

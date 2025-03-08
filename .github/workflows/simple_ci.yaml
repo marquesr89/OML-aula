@@ -1,0 +1,21 @@
+name: Simple CI/CD
+
+on:
+  push:
+
+jobs:
+  simpleci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: listar diretoria
+        run: ls -lah
+      - name: listar caminho
+        run: pwd
+      - name: Checkout
+        uses: actions/Checkout@v3
+      - name: listar diretoria
+        run: ls -lah
+      - name: listar caminho
+        run: pwd
+      - name: conda version
+        run: conda --version
