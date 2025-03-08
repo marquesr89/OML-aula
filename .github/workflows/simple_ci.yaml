@@ -5,7 +5,7 @@ on:
 
 jobs:
   simpleci:
-    runs.on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: listar diretoria
         run: dir
@@ -17,3 +17,5 @@ jobs:
         run: dir
       - name: listar caminho
         run: cd
+      - name: conda version
+        run: conda --version
