@@ -1,21 +1,23 @@
+import json
 import pytest
 import requests
 
-BASE_URL = "http://localhost:5004"  # Replace with your deployed server URL if different
+with open('./config/app.json') as f:
+    config = json.load(f)
 
 def test_has_diabetes_prediction():
     """
     Test for the /has_diabetes endpoint with valid input data.
     It should return a prediction in the response.
     """
-    response = requests.post(f"{BASE_URL}/has_diabetes", json={
+    response = requests.post(f"http://localhost:{config["service_port"]}/has_diabetes", json={
         'Pregnancies': 0,
         'Glucose': 30,
         'BloodPressure': 88,
         'SkinThickness': 60,
         'Insulin': 110,
-        'BMI': 20,
-        'DiabetesPedigreeFunction': 1,
+        'BMI': 20.0,
+        'DiabetesPedigreeFunction': 0.962,
         'Age': 20
     })
     assert response.status_code == 200

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/251880271924927971/7883b4d4d7834510972a244eb6d134fe/artifacts
+end_time: 1741427360089
+entry_point_name: ''
+experiment_id: '251880271924927971'
+lifecycle_stage: active
+run_id: 7883b4d4d7834510972a244eb6d134fe
+run_name: Linear Regression Run - C0.1 - pipeline
+run_uuid: 7883b4d4d7834510972a244eb6d134fe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741427349073
+status: 3
+tags: []
+user_id: Alexa
