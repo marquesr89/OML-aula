@@ -8,4 +8,12 @@ jobs:
     runs.on: ubuntu-latest
     steps:
       - name: listar diretoria
-        run: ls -lah
+        run: dir
+      - name: listar caminho
+        run: cd
+      - name: Checkout
+        uses: actions/Checkout@v3
+      - name: listar diretoria
+        run: dir
+      - name: listar caminho
+        run: cd
