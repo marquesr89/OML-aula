@@ -1,0 +1,26 @@
+name: Ci/CD
+on:
+  push:
+    branch:
+      - main
+  pull_request:
+    branch:
+      - main
+jobs:
+  cicd:
+    runs-on: unbutu-latest
+    steps:
+      - name: Checkout codigo
+        run:  actions/checkout@v4
+      - name: intall docker
+        run: docker/setup-buildx-action@v3
+      - name: MLFLOW Tracking server + Service
+        run: docker compose up --build
+      - name: Install conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: OML
+          environment-file: conda.yaml
+      - name: Tests
+        run: pytest
+    
