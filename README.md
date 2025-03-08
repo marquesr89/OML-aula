@@ -1,4 +1,5 @@
 Para testar o push
+mais um teste
 Este repositório descreve o processo de treino, implementação e operacionalização de modelos de Machine Learning para prever a probabilidade de um indivíduo ter diabetes. Contém instruções detalhadas sobre como utilizar o MLFlow e a FastAPI para servir os modelos, bem como informações sobre testes e ferramentas auxiliares.
 
 Estes ficheiros e pastas são utilizados no âmbido do curso Operacionalização de Machine Learning. Os slides podem ser obtidos [daqui](https://docs.google.com/presentation/d/1nJI_xrpfoA2itFLAVaF9O4SjYUerUkByfPSLog04lEo/edit?usp=sharing).
