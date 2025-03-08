@@ -8,14 +8,19 @@ services:
     container_name: mlflow-tracking
     ports:
       - 5000:5000
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   diabetes-prediction-service:
     build:
       context: .
       dockerfile: Dockerfile.Service
       tags:
-        - diabetes-prediction-service:latest
-        - ghcr.io/marquesr89/oml_service:latest
+        - diabetes-prediction-service
+        - ghcr.io/marquesr89/diabetes-prediction-service
     image: diabetes-prediction-service
     container_name: diabetes-prediction-service
     ports:
@@ -26,8 +31,8 @@ services:
       context: .
       dockerfile: Dockerfile.UI
       tags:
-        - diabetes-prediction-ui:latest
-        - ghcr.io/marquesr89/oml_ui:latest
+        - diabetes-prediction-ui
+        - ghcr.io/marquesr89/diabetes-prediction-ui
     image: diabetes-prediction-ui
     container_name: diabetes-prediction-ui
     ports:
