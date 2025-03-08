@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile.Service
       tags:
         - diabetes-prediction-service:latest
-        - ghcr.io/miguelglopes/oml_service:latest
+        - ghcr.io/marquesr89/oml_service:latest
     image: diabetes-prediction-service
     container_name: diabetes-prediction-service
     ports:
@@ -27,7 +27,7 @@ services:
       dockerfile: Dockerfile.UI
       tags:
         - diabetes-prediction-ui:latest
-        - ghcr.io/miguelglopes/oml_ui:latest
+        - ghcr.io/marquesr89/oml_ui:latest
     image: diabetes-prediction-ui
     container_name: diabetes-prediction-ui
     ports:
