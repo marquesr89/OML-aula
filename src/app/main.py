@@ -56,8 +56,9 @@ async def startup_event():
     Configures the tracking URI for MLflow to locate the model metadata
     in the local mlruns directory.
     """
-        
     mlflow.set_tracking_uri(f"{config['tracking_base_url']}:{config['tracking_port']}")
+
+    # mlflow.set_tracking_uri(f"{config['tracking_base_url']}:{config['tracking_port']}")
 
     # Load the registered model specified in the configuration
     model_uri = f"models:/{config['model_name']}@{config['model_version']}"

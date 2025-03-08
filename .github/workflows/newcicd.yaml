@@ -1,0 +1,42 @@
+name: Ci/CD
+on:
+  push:
+    branch:
+      - master
+  pull_request:
+    branch:
+      - master
+permissions:
+  content: read
+  packages: write
+jobs:
+  cicd:
+    runs-on: unbutu-latest
+    steps:
+      - name: Checkout codigo
+        run:  actions/checkout@v4
+      - name: intall docker
+        run: docker/setup-buildx-action@v3
+      - name: MLFLOW Tracking server + Service
+        run: docker compose up -d --build
+      - name: Install conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: OML
+          environment-file: conda.yaml
+      - name: Tests
+        run: conda run --no-capture-output --name OML pytest
+
+      - name: docker login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: docker push service
+        run: docker push ghcr.io/marquesr89/diabetes-prediction-service
+      
+      - name: docker push ui
+        run: docker push ghcr.io/marquesr89/diabetes-prediction-ui
+
+    
